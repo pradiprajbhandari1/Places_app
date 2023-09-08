@@ -21,9 +21,19 @@ class PlacesListScreen  extends StatelessWidget {
          ),
   ],
   ),
-      body:  Consumer<GreatPlaces>(
+      body:  FutureBuilder(
+    future: Provider.of<GreatPlaces>(context, listen: false)
+        .fetchAndSetPlaces(),
+builder: (ctx,snapshot) => snapshot.connectionState ==
+    ConnectionState.waiting
+          ? Center(
+          child: CircularProgressIndicator(),
+             )
+
+     :      Consumer<GreatPlaces> (
+
         child: const Center(
-          child: Text(".......... add some  "),
+          child: Text("... No place yet....... add some  "),
       ),
         builder: (ctx, greatPlaces, ch)=> greatPlaces.items.length <= 0
             ? ch
@@ -41,7 +51,7 @@ class PlacesListScreen  extends StatelessWidget {
     )
       ),
         ),
-
+      ),
       );
 
   }
