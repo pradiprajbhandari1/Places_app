@@ -6,11 +6,12 @@ import '../widgets/image_input.dart';
 
 import 'package:provider/provider.dart';
 import '../providers/great_places.dart';
+import '../widgets/location_input.dart';
+
 
 class AddPlaceScreen extends StatefulWidget {
   static const routeName ='/add-place';
 
-  const AddPlaceScreen({Key key}) : super(key: key);
 
 
   @override
@@ -71,8 +72,12 @@ void _savePlace() {
 
                SizedBox( height: 10,),
                 ImageInput(_selectImage),
+                  SizedBox( height: 10,),
+                  LocationInput(),
 
-  ],
+
+
+                ],
     ),
             )
 
@@ -87,7 +92,7 @@ void _savePlace() {
           ElevatedButton.icon(
             icon: const Icon(Icons.add, color: Colors.blue,),
             label: const Text('Add Place'),
-            onPressed:() {},
+            onPressed: _savePlace,
 
 
               style: ElevatedButton.styleFrom(
