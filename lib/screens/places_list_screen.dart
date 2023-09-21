@@ -44,6 +44,7 @@ builder: (ctx,snapshot) => snapshot.connectionState ==
       ),
     ),
                 title: Text(greatPlaces.items[i].title),
+                  subtitle: Text(greatPlaces.items[i].location.address),
                   onTap :(){
       // go to detail page ...
 
