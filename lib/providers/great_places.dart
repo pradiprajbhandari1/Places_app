@@ -12,6 +12,12 @@ class GreatPlaces with ChangeNotifier {
     return [..._items];
   }
 
+  Place findById(String id) {
+    return _items.firstwhere((place) => place.id == id);
+
+  }
+
+
 
    Future<void> adddPlace(
       String pickedTitle,
